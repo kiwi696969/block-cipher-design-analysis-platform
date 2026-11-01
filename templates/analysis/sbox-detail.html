@@ -1,0 +1,11 @@
+{% extends "analysis/base.html" %}
+
+{% comment %}
+S 盒详情 —— 页面根文件（URL: /sbox/<id>/）。
+
+这是本站唯一带参数的页面：服务端只有**这一条**路由，任意 id 都返回这份
+根文件；具体 id 由入口脚本从地址栏解析后作为 prop 传给视图
+（见 frontend/src/entries/sbox-detail.js）。
+
+对应：analysis/pages.py 的 sbox-detail 条目 · frontend/src/entries/sbox-detail.js · frontend/sbox-detail.html
+{% endcomment %}

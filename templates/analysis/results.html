@@ -1,0 +1,10 @@
+{% extends "analysis/base.html" %}
+
+{% comment %}
+结果与指标 —— 页面根文件（URL: /results/）。
+
+结果本身由上一次分析写进 sessionStorage（同一次浏览器会话内有效），
+所以这个页面刷新、直达、从别的页面跳进来都能读到同一份数据。
+
+对应：analysis/pages.py 的 results 条目 · frontend/src/entries/results.js · frontend/results.html
+{% endcomment %}

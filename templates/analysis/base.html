@@ -1,0 +1,39 @@
+{% load static vite_assets %}<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  {% comment %}
+    站点图标。不声明的话浏览器会自己去要 /favicon.ico，
+    而项目里没有这个文件 —— 每次访问都会在控制台留下一条 404。
+    图标放在 frontend/public/ 下，由 Vite 原样拷进 static/dist/。
+  {% endcomment %}
+  <link rel="icon" href="{% static 'dist/favicon.svg' %}" type="image/svg+xml">
+  {% block head_extra %}{% endblock %}
+
+  {% comment %}
+    该页面**自己的** Vite 入口（CSS + 依赖 chunk + 带哈希的 JS）。
+    入口名来自 analysis/pages.py 的注册表，每个页面各不相同 ——
+    这正是多页站点与单页应用的分野：页面之间不共享运行时路由，
+    各自加载各自那一段代码。
+    前端尚未构建时，标签会输出一段可见的提示，而不是让页面静默白屏。
+  {% endcomment %}
+  {% vite_assets page_entry %}
+</head>
+<body>
+  {% comment %}
+    页面根挂载点。
+    data-page 是该页面的标识（与 frontend/src/pages.js 的 key 一致），
+    外壳与内容由本页入口脚本挂载的 Vue 应用接管。
+  {% endcomment %}
+  <div id="app" data-page="{{ page_key }}"></div>
+
+  <noscript>
+    <div style="margin:24px;padding:16px;border:1px solid #fecaca;background:#fef2f2;
+                color:#991b1b;border-radius:8px;font:13px/1.7 system-ui,sans-serif">
+      本平台的界面由 JavaScript 渲染，当前浏览器禁用了脚本。请开启 JavaScript 后重试。
+    </div>
+  </noscript>
+</body>
+</html>

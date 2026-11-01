@@ -1,0 +1,47 @@
+# Python / 虚拟环境
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+*.log
+
+# 前端（Vue + Vite）
+frontend/node_modules/
+frontend/.vite/
+# 构建产物由 `npm run build` 生成，不入版本库
+static/dist/
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+~$*
+*.zip
+
+# 工具缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# AI 助手的工作目录（含会话记忆与部署笔记，可能夹带口令、内网地址，不入库）
+.workbuddy/
+
+# BCA 后端：二进制组件与运行产物，都不入版本库
+#   · libgurobi130.so / kissat-*：几十 MB 的可执行文件，各自单独分发
+#   · results/：搜索产物（可能涨到 GB 级），且是"跑出来的"而不是"写出来的"
+#   · outputs/：导出/归档给用户的东西
+libgurobi130.so
+kissat-4.0.0-linux-amd64/
+outputs/
+backend/bca_light/results/
+
+# 站点配置：含 SECRET_KEY，绝不入版本库（模板 wsl-env.sh.example 要提交）
+scripts/wsl-env.sh

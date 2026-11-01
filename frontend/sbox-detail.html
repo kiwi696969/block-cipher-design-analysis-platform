@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S 盒详情 · 密码算法分析系统</title>
+  </head>
+  <body>
+    <!--
+      「S 盒详情」页的独立根文件。
+      注意它服务的是 /sbox/<id>/ 这**一条**路由（任意 id 都返回这一份 HTML），
+      具体 id 由 src/entries/sbox-detail.js 从地址栏解析后作为 prop 传给视图 ——
+      多页站点处理动态路径就是这么做的。
+    -->
+    <div id="app" data-page="sbox-detail"></div>
+
+    <noscript>
+      <div style="margin: 24px; font: 13px/1.7 system-ui, sans-serif">
+        本平台的界面由 JavaScript 渲染，当前浏览器禁用了脚本。请开启 JavaScript 后重试。
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/entries/sbox-detail.js"></script>
+  </body>
+</html>

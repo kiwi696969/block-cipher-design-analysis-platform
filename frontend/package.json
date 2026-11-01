@@ -1,0 +1,36 @@
+{
+  "name": "cipher-analysis-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "密码算法分析系统 —— 多页站点前端（Vue 3 + Vite，无客户端路由）",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node tests/verify-core.mjs && node tests/verify-params.mjs && node tests/verify-integration.mjs && node tests/verify-pages.mjs && node tests/verify-seed.mjs && node tests/verify-accuracy.mjs && node tests/verify-bca-solve.mjs && node tests/verify-spn.mjs && node tests/verify-compare.mjs",
+    "test:core": "node tests/verify-core.mjs",
+    "test:params": "node tests/verify-params.mjs",
+    "test:integration": "node tests/verify-integration.mjs",
+    "test:pages": "node tests/verify-pages.mjs",
+    "test:seed": "node tests/verify-seed.mjs",
+    "test:accuracy": "node tests/verify-accuracy.mjs",
+    "test:bca": "node tests/verify-bca-solve.mjs",
+    "test:spn": "node tests/verify-spn.mjs",
+    "test:compare": "node tests/verify-compare.mjs",
+    "test:e2e": "node tests/e2e-browser.cjs",
+    "test:accept": "node tests/accept-four-defects.cjs",
+    "test:shuangyu": "node tests/verify-shuangyu.mjs",
+    "test:design": "node tests/design-shuangyu.cjs",
+    "test:fangzhen": "node tests/verify-fangzhen.mjs",
+    "test:pintu": "node tests/verify-pintu.mjs",
+    "test:design:fangzhen": "node tests/design-fangzhen.cjs"
+  },
+  "dependencies": {
+    "vue": "^3.5.43"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.9",
+    "vite": "^8.3.0"
+  }
+}

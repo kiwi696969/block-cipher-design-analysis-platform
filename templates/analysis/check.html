@@ -1,0 +1,10 @@
+{% extends "analysis/base.html" %}
+
+{% comment %}
+接口自检 —— 页面根文件（URL: /check/）。
+
+不进顶部导航，但和其他页面一样是**独立页面**：有自己的路由、模板与入口。
+运维时直接访问 /check/ 就能看到各接口的连通情况。
+
+对应：analysis/pages.py 的 check 条目 · frontend/src/entries/check.js · frontend/check.html
+{% endcomment %}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="密码算法分析系统">
+  <!--
+    站点图标：蓝底 + 置换映射示意（左列输入 → 右列输出，连线交叉即"换位"）。
+    用几何图形而不是字母，好处是不依赖字体、缩到 16px 仍能看出轮廓。
+    主题色与 styles/main.css 的 --accent (#2563eb) 保持一致。
+  -->
+  <rect width="32" height="32" rx="7" fill="#2563eb"/>
+  <g stroke="#ffffff" stroke-width="1.9" stroke-linecap="round" stroke-opacity="0.92">
+    <path d="M10 9 L22 16"/>
+    <path d="M10 16 L22 23"/>
+    <path d="M10 23 L22 9"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="10" cy="9" r="2.6"/>
+    <circle cx="10" cy="16" r="2.6"/>
+    <circle cx="10" cy="23" r="2.6"/>
+    <circle cx="22" cy="9" r="2.6"/>
+    <circle cx="22" cy="16" r="2.6"/>
+    <circle cx="22" cy="23" r="2.6"/>
+  </g>
+</svg>

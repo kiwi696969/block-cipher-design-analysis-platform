@@ -1,0 +1,56 @@
+# ~/sboxanalyzer/bin/espresso -Dmany -estrong -epos -s -t -of ~/Program/AES/truth_table/aes_gf_x2_tt.txt
+# UC Berkeley, Espresso Version #2.3, Release date 01/31/88
+# READ       	Time was 0.00 sec, cost is c=256(256) in=4096 out=256 tot=4352
+# COMPL      	Time was 0.00 sec, cost is c=22(22) in=56 out=22 tot=78
+# PLA is ~/Program/AES/truth_table/aes_gf_x2_tt.txt with 16 inputs and 1 outputs
+# ON-set cost is  c=22(22) in=56 out=22 tot=78
+# OFF-set cost is c=256(256) in=4096 out=256 tot=4352
+# DC-set cost is  c=0(0) in=0 out=0 tot=0
+# phase is ---------------- 0
+# EXPAND     	Time was 0.00 sec, cost is c=22(0) in=56 out=22 tot=78
+# IRRED      	Time was 0.00 sec, cost is c=22(0) in=56 out=22 tot=78
+# ESSEN      	Time was 0.00 sec, cost is c=8(0) in=16 out=8 tot=24
+# REDUCE     	Time was 0.00 sec, cost is c=14(12) in=52 out=14 tot=66
+# EXPAND     	Time was 0.00 sec, cost is c=14(0) in=40 out=14 tot=54
+# IRRED      	Time was 0.00 sec, cost is c=14(0) in=40 out=14 tot=54
+# REDUCE_GASP	Time was 0.00 sec, cost is c=14(12) in=52 out=14 tot=66
+# EXPAND_GASP	Time was 0.00 sec, cost is c=26(0) in=76 out=26 tot=102
+# NEWPRIMES	Time was 0.00 sec, cost is c=26(0) in=76 out=26 tot=102
+# IRRED      	Time was 0.00 sec, cost is c=12(0) in=36 out=12 tot=48
+# REDUCE     	Time was 0.00 sec, cost is c=12(4) in=40 out=12 tot=52
+# EXPAND     	Time was 0.00 sec, cost is c=12(0) in=36 out=12 tot=48
+# IRRED      	Time was 0.00 sec, cost is c=12(0) in=36 out=12 tot=48
+# REDUCE_GASP	Time was 0.00 sec, cost is c=12(4) in=40 out=12 tot=52
+# EXPAND_GASP	Time was 0.00 sec, cost is c=16(0) in=48 out=16 tot=64
+# NEWPRIMES	Time was 0.00 sec, cost is c=16(0) in=48 out=16 tot=64
+# IRRED      	Time was 0.00 sec, cost is c=12(0) in=36 out=12 tot=48
+# ADJUST     	Cost is c=20(0) in=52 out=20 tot=72
+# MV_REDUCE  	Time was 0.00 sec, cost is c=20(0) in=52 out=20 tot=72
+# ESPRESSO   	Time was 0.00 sec, cost is c=20(0) in=52 out=20 tot=72
+.i 16
+.o 1
+.ilb a0 a1 a2 a3 a4 a5 a6 a7 b0 b1 b2 b3 b4 b5 b6 b7
+.ob F
+#.phase 0
+.p 20
+1---1------1---- 1
+1---0------0---- 1
+0------0------1- 1
+0------1------0- 1
+-----1------1--1 1
+-----0------0--1 1
+-------1------11 1
+-------0------01 1
+----0------1---0 1
+----1------0---0 1
+-----0------1--0 1
+-----1------0--0 1
+------1------0-- 1
+------0------1-- 1
+---1------0----- 1
+---0------1----- 1
+--1------0------ 1
+--0------1------ 1
+-1------0------- 1
+-0------1------- 1
+.e

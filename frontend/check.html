@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>接口自检 · 密码算法分析系统</title>
+  </head>
+  <body>
+    <!-- 「接口自检」页的独立根文件 —— 服务端路由见 analysis/pages.py 的 check 条目 -->
+    <div id="app" data-page="check"></div>
+
+    <noscript>
+      <div style="margin: 24px; font: 13px/1.7 system-ui, sans-serif">
+        本平台的界面由 JavaScript 渲染，当前浏览器禁用了脚本。请开启 JavaScript 后重试。
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/entries/check.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "analysis/base.html" %}
+
+{% comment %}
+后端搜索 —— 页面根文件（URL: /bca/）。
+
+这一页把 WSL 里的 BCA_Light（SAT + kissat）接到界面上：可以推到浏览器引擎
+算不动的轮数，代价是耗时从秒变成分钟乃至小时。
+
+后端只能在 Linux/WSL 里跑（BCA 依赖 PR_SET_PDEATHSIG，kissat 是 ELF 二进制），
+所以从 Windows 侧起的 Django 打开这页会看到「后端不可用」—— 那是预期行为。
+启动方式见项目根目录的 start-platform-wsl.bat。
+
+对应：analysis/pages.py 的 bca 条目 · frontend/src/entries/bca.js · frontend/bca.html
+{% endcomment %}

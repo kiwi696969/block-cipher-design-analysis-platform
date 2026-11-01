@@ -1,0 +1,10 @@
+{% extends "analysis/base.html" %}
+
+{% comment %}
+页面不存在 —— 兜底根文件。
+
+由 analysis/urls.py 末尾的兜底路由渲染，并带 **HTTP 404** 状态码
+（不是单页应用时代的"回壳 + 200"）。
+
+对应：analysis/pages.py 的 NOT_FOUND · frontend/src/entries/not-found.js · frontend/404.html
+{% endcomment %}
