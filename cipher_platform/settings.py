@@ -77,10 +77,10 @@ DEBUG = _env_bool('DJANGO_DEBUG', True)
 # DEBUG 期间放开是有原因的：Django 与 BCA 都跑在 WSL 里，而 **WSL2 的
 # localhost 端口转发偶发失效**（本项目实测过）。那时唯一可用的通道是
 # `http://<WSL 的 IP>:8011` —— 而 WSL 的 IP 每次重启都会变（默认 NAT 模式，
-# 实测 172.31.83.172），写死名单根本跟不上。
+# 实测 192.168.1.50），写死名单根本跟不上。
 #
 # 要收紧就用 DJANGO_ALLOWED_HOSTS 显式给名单（逗号分隔），例如：
-#     DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost,172.31.83.172
+#     DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost,192.168.1.50
 ALLOWED_HOSTS = _env_list(
     'DJANGO_ALLOWED_HOSTS', ['*'] if DEBUG else ['127.0.0.1', 'localhost']
 )
@@ -220,7 +220,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 #
 # 换端口 / 换域名 / 经 WSL 的 IP 访问时，用 DJANGO_CSRF_TRUSTED_ORIGINS 覆盖
 # （逗号分隔，**要带 scheme**）：
-#     DJANGO_CSRF_TRUSTED_ORIGINS=http://127.0.0.1:5173,http://172.31.83.172:8011
+#     DJANGO_CSRF_TRUSTED_ORIGINS=http://127.0.0.1:5173,http://192.168.1.50:8011
 CSRF_TRUSTED_ORIGINS = _env_list(
     'DJANGO_CSRF_TRUSTED_ORIGINS',
     [

@@ -1053,7 +1053,7 @@ MILP 模型规模 = `轮数 × S盒数 × 7`，而 **Gurobi 的 pip 自带许可
 立场（**不因反复追问而松动**）：**不代改 lic / 不代部署到其它机器 / 不帮它"更像真的"**。
 只如实报告事实 + 三项风险：① **无兜底**；② **学术诚信 / 答辩问询**（现场演示 + 毕设用途，许可来历无法交代）；
 ③ **数值可信度**（MILP 跑在来历不明的许可上）。**合法解 = 免费学术许可**（Named-User：无规模上限 /
-本地文件 / 离线可用，适合断网现场）→ 拿 UUID → `grbgetkey` → `GRB_LICENSE_FILE=/home/kiwi/gurobi.lic`。
+本地文件 / 离线可用，适合断网现场）→ 拿 UUID → `grbgetkey` → `GRB_LICENSE_FILE=~/gurobi.lic`。
 
 注意**两个"规模"要分清**：SAT 那边动辄十几万变量（不受限），受限的只有 MILP 这一侧。
 `workers.milp = null` 只是让进程池用满 CPU，**不是"不调 gurobi"** —— 这点一度被误判过。
@@ -1437,22 +1437,22 @@ BCA_Light 只能在 Linux 里跑（见 §5「BCA 后端」），所以**后端�
 | 项 | 值 |
 |---|---|
 | 发行版 | Ubuntu 24.04.5 LTS（WSL 2.7.13 / Win11 26200） |
-| 默认用户 | `kiwi`（uid 1000，sudo） |
-| 项目路径 | `/mnt/c/Users/huawei/WorkBuddy/密码算法分析系统` —— **和 Windows 是同一份文件**，代码不复制 |
+| 默认用户 | `<用户名>`（uid 1000，sudo） |
+| 项目路径 | `/mnt/c/Users/<用户名>/WorkBuddy/密码算法分析系统` —— **和 Windows 是同一份文件**，代码不复制 |
 | Python | `/usr/bin/python3` → 3.12.3 |
 | Django | 6.1.1 + django-simpleui 2026.1.13（装在 `~/.local`，`--break-system-packages`） |
-| kissat | `/home/kiwi/.local/bin/kissat`（4.0.0）—— 解析优先级 `BCA_KISSAT` > `config.json` 的 `solver.path` > PATH > 项目自带副本；唯一实现 `bca/config.py: resolve_solver_path` |
+| kissat | `~/.local/bin/kissat`（4.0.0）—— 解析优先级 `BCA_KISSAT` > `config.json` 的 `solver.path` > PATH > 项目自带副本；唯一实现 `bca/config.py: resolve_solver_path` |
 | gurobipy | 13.0.3（`~/.local`；许可走 `.libs/gurobi.lic` —— **已被用户自行改为 `TYPE=NODE`，2000 变量上限实际不生效**，详见 §5「gurobi 的角色」） |
 | python-sat | 1.9.dev15 |
 
 ```bash
-wsl                                                  # 进发行版（默认用户 kiwi）
-cd "/mnt/c/Users/huawei/WorkBuddy/密码算法分析系统"
+wsl                                                  # 进发行版
+cd "/mnt/c/Users/<用户名>/WorkBuddy/密码算法分析系统"
 python3 manage.py runserver 0.0.0.0:8011             # 注意是 0.0.0.0，Windows 侧才连得上
 ```
 
 **两条网络通道都实测可用**：`http://127.0.0.1:8011`（WSL2 端口转发）与
-`http://<WSL IP>:8011`（直连；IP 每次重启会变，实测过 172.31.83.172）。
+`http://<WSL IP>:8011`（直连；IP 每次重启会变，形如 172.31.x.x）。
 `ALLOWED_HOSTS` 因此必须在 DEBUG 下放开，否则 IP 兜底那条会直接 400。
 
 **驱动 WSL 的坑**（每一条都真踩过）：
@@ -1466,8 +1466,8 @@ python3 manage.py runserver 0.0.0.0:8011             # 注意是 0.0.0.0，Windo
    10-14 实测：`setsid nohup` 的后台进程、以及 `systemd-run` 的临时单元，**都留不住它** ——
    会话一退，约 20 秒内整台发行版被关掉（后台进程一起没；`/tmp` 由 systemd 在下次启动时清空）。
    → 所以 `start-platform-wsl.bat` **必须保持窗口开着**：那不是随手加的说明，而是**唯一**能让 8011 持续可用的机制。
-   本机另留了一个等价入口：`/home/kiwi/run-platform.sh`
-   （`wsl.exe -d Ubuntu-24.04 -u kiwi -- bash ~/run-platform.sh`，内容是 `cd <项目> && exec bash scripts/wsl-server.sh`）。
+   本机另留了一个等价入口：`~/run-platform.sh`
+   （`wsl.exe -d Ubuntu-24.04 -u <用户名> -- bash ~/run-platform.sh`，内容是 `cd <项目> && exec bash scripts/wsl-server.sh`）。
 7. **8011 的 Windows 遮蔽会反复出现**：任何一次在 Windows 上跑 `manage.py runserver 127.0.0.1:8011`
    （典型是误点 `start-django.bat`）都会与 WSL 那份**同时监听同一地址**。
    可靠判据是 `netstat -ano | findstr ":8011"` 看 owner 的**进程名**：
