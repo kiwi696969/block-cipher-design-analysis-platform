@@ -4,6 +4,8 @@
 
 目标是让「改一个轮函数，看它抗差分/线性分析到底有多强」这件事，从改脚本、跑几天、读日志，变成一个可以在几分钟内重复的实验。
 
+> **English.** Dedicated tools supporting automated evaluation are in urgent demand. The Block Cipher Design and Analysis Platform is built to address this pain point. Integrating design, testing, analysis and teaching functions, it provides solid technical support for security verification throughout the entire lifecycle of cryptographic algorithms.
+
 ---
 
 ## 能做什么
